@@ -144,6 +144,13 @@ func (c *MRCluster) worker() {
 					}
 				}
 				// 对 Key 进行排序，数据量太大（无法读入内存时，才进行排序）
+				keys := make([]string, len(kvList))
+				i := 0
+				for k := range kvList {
+					keys[i] = k
+					i++
+				}
+				//sort.Strings(keys)
 				outFile := mergeName(t.dataDir, t.jobName, t.taskNumber)
 				out, outBuffer := CreateFileAndBuf(outFile)
 				for k, v := range kvList {
