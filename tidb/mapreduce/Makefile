@@ -18,6 +18,8 @@ gendata:
 te:
 	go test -v -run=TestExampleURLTop -timeout 20m -cpuprofile=cpu.profile -blockprofile=block.profile -memprofile=mem.profile
 
+th:
+	go test -v -run=TestURLTop -timeout 20m -cpuprofile=cpu.profile -blockprofile=block.profile -memprofile=mem.profile
 memp:
 	go tool pprof -http=:8080 ./talent.test ./mem.profile
 cpup:
